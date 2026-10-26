@@ -1,419 +1,505 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صالون شادي وياسين - الفخامة والرقي في عالم الحلاقة</title>
-    <!-- استيراد خطوط جوجل -->
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #c9a063; /* لون ذهبي فاخر */
-            --bg-dark: #0f0f0f; /* أسود قاتم */
-            --bg-card: #1a1a1a; /* أسود أفتح للكروت */
-            --text-main: #e0e0e0;
-            --text-muted: #aaaaaa;
-            --font-main: 'Cairo', sans-serif;
-            --font-fancy: 'Aref Ruqaa', serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#060606">
+<title>صالون شادي وياسين</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#060606;
+  --coal:#121009;
+  --line:#2c2517;
+  --gold:#d4af37;
+  --gold-light:#f3dc8a;
+  --gold-deep:#9c7a1c;
+  --text:#f2ead8;
+  --muted:#a89c80;
+  --gold-grad:linear-gradient(135deg,#f8e7a1 0%,#d4af37 45%,#9c7a1c 100%);
+  --ink:#1a1405;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--black);
+  color:var(--text);
+  font-family:'Tajawal',Tahoma,'Segoe UI',sans-serif;
+  line-height:1.7;
+  min-height:100vh;
+}
+.wrap{max-width:480px;margin:0 auto;padding:0 20px}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
 
-        body {
-            margin: 0;
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
+/* ---------- Hero ---------- */
+header{
+  text-align:center;
+  padding:calc(40px + env(safe-area-inset-top,0px)) 0 0;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.22),transparent 65%),
+    var(--black);
+}
+.greet-line{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:nowrap;white-space:nowrap;
+  gap:min(2vw,12px);
+  padding:0 10px;
+}
+.hi{font-size:min(3.4vw,1.05rem);color:var(--muted)}
+.brand{
+  font-family:'Aref Ruqaa','Reem Kufi','Tajawal',serif;
+  font-weight:700;
+  font-size:min(9.6vw,3.5rem);
+  line-height:1.3;
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+  filter:drop-shadow(0 4px 20px rgba(212,175,55,.35));
+  animation:rise 1.2s ease-out both;
+}
+@keyframes rise{from{opacity:0;filter:blur(8px)}to{opacity:1}}
+.partner{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:'Aref Ruqaa','Reem Kufi',serif;
+  font-size:min(5.8vw,1.8rem);
+  color:var(--gold-light);
+}
+.partner svg{width:min(7.5vw,2.2rem);height:auto;color:var(--gold);filter:drop-shadow(0 2px 8px rgba(212,175,55,.45))}
+.rule{width:90px;height:2px;margin:14px auto 0;background:var(--gold-grad)}
 
-        /* تنسيق قسم الترحيب الرئيسي */
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 2px solid var(--primary);
-        }
+/* الجملة الكبيرة بعرض الشاشة */
+.big-tagline{
+  width:100%;
+  margin-top:20px;
+  padding:26px 14px 30px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--gold-deep);
+  background:linear-gradient(180deg,rgba(212,175,55,.08),transparent);
+  font-family:'Aref Ruqaa','Reem Kufi',serif;
+  font-weight:700;
+  font-size:clamp(1.9rem,8.6vw,3rem);
+  line-height:1.6;
+}
+.big-tagline span{
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+  filter:drop-shadow(0 3px 16px rgba(212,175,55,.3));
+}
 
-        .welcome-line {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+/* ---------- Marquee (مواعيد العمل) ---------- */
+.ticker{
+  position:relative;
+  overflow:hidden;background:var(--gold-grad);color:var(--ink);
+  font-weight:700;font-size:1.05rem;white-space:nowrap;padding:12px 0;
+  box-shadow:0 6px 22px rgba(212,175,55,.18);
+}
+.ticker::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);
+  transform:translateX(-120%);
+  animation:shine 5s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes shine{0%{transform:translateX(-120%)}60%,100%{transform:translateX(120%)}}
+.ticker-track{display:inline-flex;animation:scroll 26s linear infinite}
+.ticker-track span{padding:0 22px}
+.ticker-track span::after{content:"✦";margin-right:44px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(50%)}}
 
-        .welcome-small {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
+/* ---------- Sections ---------- */
+section{padding:46px 0 0}
+h2{
+  font-family:'Reem Kufi','Tajawal',serif;
+  font-size:1.7rem;font-weight:700;color:var(--gold);
+  display:flex;align-items:center;gap:12px;margin-bottom:6px;
+}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transparent,var(--gold-deep))}
+.hint{color:var(--muted);font-size:.95rem;margin-bottom:18px}
 
-        .salon-name-big {
-            font-family: var(--font-fancy);
-            font-size: 5rem;
-            color: var(--primary);
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+/* ---------- Services (بطاقات) ---------- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{position:relative;display:block;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.card input{position:absolute;opacity:0;pointer-events:none}
+.card .in{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;
+  height:100%;
+  padding:20px 10px 16px;
+  background:linear-gradient(160deg,#18140a,#0c0a05);
+  border:1px solid var(--line);
+  border-radius:16px;
+  transition:border-color .2s,box-shadow .2s,transform .15s;
+}
+.card:active .in{transform:scale(.97)}
+.pic{
+  width:74px;height:74px;border-radius:50%;
+  display:grid;place-items:center;
+  color:var(--gold);
+  background:radial-gradient(circle,rgba(212,175,55,.22),rgba(212,175,55,.03) 72%);
+  border:1px solid var(--gold-deep);
+  overflow:hidden;
+}
+.pic svg{width:66px;height:66px}
+.pic img{width:100%;height:100%;object-fit:cover}
+.sname{font-size:1.05rem;font-weight:700;color:var(--text);line-height:1.4;margin-top:4px}
+.sdesc{font-size:.82rem;color:var(--muted);line-height:1.5}
+.card .in::after{
+  content:"✓";
+  position:absolute;top:8px;left:8px;
+  width:22px;height:22px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--gold-grad);color:var(--ink);font-size:.8rem;font-weight:700;
+  opacity:0;transform:scale(.4);transition:.2s;
+}
+.card input:checked + .in{
+  border-color:var(--gold);
+  box-shadow:0 0 0 1px var(--gold),0 8px 26px rgba(212,175,55,.2);
+  background:linear-gradient(160deg,#241d0b,#100c05);
+}
+.card input:checked + .in::after{opacity:1;transform:scale(1)}
+.card input:checked + .in .sname{color:var(--gold-light)}
+.card input:focus-visible + .in{outline:2px solid var(--gold-light);outline-offset:3px}
 
-        .yassin-small {
-            font-size: 2.5rem;
-            color: var(--text-main);
-            font-weight: 400;
-        }
+/* ---------- صناديق (حجز / محفظة / ولاء) ---------- */
+.panel{
+  padding:24px 20px;
+  background:linear-gradient(160deg,#18140a,#0c0a05);
+  border:1px solid var(--gold-deep);
+  border-radius:16px;
+  outline:1px solid var(--line);outline-offset:5px;
+}
+.field{margin-bottom:14px}
+.field label{display:block;margin-bottom:6px;color:var(--gold-light);font-size:.95rem}
+.field input{
+  width:100%;padding:15px 16px;
+  background:var(--black);border:1px solid var(--line);border-radius:12px;
+  color:var(--text);font:inherit;font-size:1rem;
+  transition:border-color .2s;
+}
+.field input:focus{outline:none;border-color:var(--gold)}
+.field input::placeholder{color:#6d6350}
+.error{color:#e57a6b;font-size:.9rem;min-height:1.3em;margin-bottom:6px}
+.btn{
+  width:100%;padding:16px;background:var(--gold-grad);color:var(--ink);
+  border:0;border-radius:12px;font:inherit;font-weight:700;font-size:1.15rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 8px 24px rgba(212,175,55,.22);
+  transition:transform .15s,filter .2s;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.98)}
+.btn:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.btn svg{width:22px;height:22px;fill:currentColor}
+.note{color:var(--muted);font-size:.85rem;margin-top:14px;text-align:center}
 
-        .scissors-icon {
-            font-size: 3rem;
-            color: var(--primary);
-        }
+/* ---------- Wallet ---------- */
+.pay{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.pay-info{min-width:0}
+.pay-label{color:var(--muted);font-size:.9rem}
+.pay-number{
+  display:block;
+  font-family:'Reem Kufi','Tajawal',sans-serif;font-weight:700;
+  font-size:clamp(1.35rem,6.4vw,1.8rem);letter-spacing:.06em;
+  direction:ltr;text-align:right;
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+.copy{
+  flex:none;padding:10px 18px;background:transparent;color:var(--gold);
+  border:1.5px solid var(--gold);border-radius:10px;
+  font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;
+  transition:background .2s,color .2s,transform .15s;
+}
+.copy:hover{background:rgba(212,175,55,.12)}
+.copy:active{transform:scale(.96)}
+.copy:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.copy.done{background:var(--gold-grad);color:var(--ink);border-color:var(--gold)}
 
-        .tagline-big {
-            font-family: var(--font-fancy);
-            font-size: 3rem;
-            color: var(--text-main);
-            width: 100%;
-            display: block;
-            margin-top: 10px;
-            line-height: 1.2;
-        }
+/* ---------- Loyalty ---------- */
+.loyalty{text-align:center}
+.loyalty .lead{color:var(--text);font-size:1.05rem;max-width:340px;margin:0 auto 20px}
+.cuts{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:340px;margin:0 auto 16px}
+.cut{
+  aspect-ratio:1;border:1.5px solid var(--gold-deep);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);font-weight:700;font-size:1rem;
+}
+.cut.gift{
+  background:var(--gold-grad);color:var(--ink);border-color:var(--gold);
+  box-shadow:0 0 18px rgba(212,175,55,.45);font-size:.72rem;
+}
+.loyalty strong{color:var(--gold-light);font-size:1.1rem}
 
-        /* تنسيق الأقسام المشتركة */
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* ---------- Closing ---------- */
+.closing{
+  margin-top:50px;padding:40px 20px 10px;text-align:center;
+  border-top:2px solid var(--gold);background:var(--coal);
+}
+.closing .big{
+  font-family:'Aref Ruqaa','Reem Kufi',serif;font-weight:700;
+  font-size:clamp(1.6rem,7vw,2.2rem);line-height:1.6;margin-bottom:18px;
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+.closing ul{list-style:none;display:grid;gap:10px;max-width:340px;margin:0 auto 6px}
+.closing li{
+  padding:12px 14px;border:1px solid var(--line);border-radius:12px;
+  color:var(--gold-light);font-weight:500;
+}
+.closing li::before{content:"✦";color:var(--gold);margin-left:8px}
 
-        h2 {
-            font-family: var(--font-fancy);
-            font-size: 3rem;
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 40px;
-        }
+footer{
+  text-align:center;color:var(--muted);font-size:.85rem;background:var(--coal);
+  padding:20px 20px calc(30px + env(safe-area-inset-bottom,0px));
+}
+footer b{color:var(--gold)}
 
-        /* تنسيق قسم المواعيد */
-        .hours-box {
-            background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(201, 160, 99, 0.2);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .hours-text {
-            font-size: 1.8rem;
-            color: var(--text-main);
-            margin: 10px 0;
-        }
-
-        /* تنسيق قسم الخدمات */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--bg-card);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid transparent;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .service-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .service-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .service-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .service-price {
-            font-size: 1.3rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* تنسيق اختيار الخدمة (Checkbox) */
-        .service-checkbox {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 25px;
-            height: 25px;
-            cursor: pointer;
-            accent-color: var(--primary);
-            z-index: 10;
-        }
-
-        /* تنسيق قسم الحجز والمحافظ والولاء */
-        .booking-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .card-box {
-            background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(201, 160, 99, 0.2);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .card-box h3 {
-            font-family: var(--font-fancy);
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background-color: #111;
-            color: var(--text-main);
-            font-size: 1.1rem;
-        }
-
-        .btn-whatsapp {
-            width: 100%;
-            padding: 15px;
-            background-color: #25D366; /* لون واتساب */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #1ebe57;
-        }
-
-        /* تنسيق عبارات الصياعة التسويقية */
-        .marketing-quotes {
-            text-align: center;
-            margin-top: 60px;
-            font-family: var(--font-fancy);
-            font-size: 1.8rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        .quote-item {
-            margin-bottom: 15px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #050505;
-            color: var(--text-muted);
-            border-top: 1px solid #222;
-        }
-
-        /* تنسيق للشاشات الصغيرة */
-        @media (max-width: 768px) {
-            .welcome-line { flex-wrap: wrap; gap: 5px; }
-            .salon-name-big { font-size: 3rem; }
-            .yassin-small { font-size: 1.8rem; }
-            .tagline-big { font-size: 2rem; }
-            h2 { font-size: 2.2rem; }
-        }
-    </style>
+@media (prefers-reduced-motion:reduce){
+  .ticker-track,.brand,.ticker::after{animation:none}
+  .ticker{overflow-x:auto}
+}
+</style>
 </head>
 <body>
 
-    <!-- قسم الترحيب الرئيسي -->
-    <header class="hero">
-        <div class="welcome-line">
-            <span class="welcome-small">أهلاً بك</span>
-            <span class="scissors-icon">&#9986;</span>
-            <span class="salon-name-big">صالون شادي</span>
-            <span class="yassin-small">ياسين</span>
+<!-- رسومات رجالي مشتركة (وجه + رقبة + أكتاف) -->
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <g id="man" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M26 45v8M38 45v8"/>
+      <path d="M6 64c0-8 10-10 20-11M58 64c0-8-10-10-20-11"/>
+      <path d="M20 29c0 11 5 17 12 17s12-6 12-17"/>
+      <path d="M20 29c-3 0-3 5 0 5M44 29c3 0 3 5 0 5"/>
+    </g>
+  </defs>
+</svg>
+
+<header>
+  <div class="greet-line">
+    <span class="hi">أهلاً بك في</span>
+    <h1 class="brand">صالون شادي</h1>
+    <span class="partner">وياسين
+      <svg viewBox="0 0 200 120" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="34" cy="30" r="19" stroke-width="9"/>
+          <circle cx="34" cy="90" r="19" stroke-width="9"/>
+          <path d="M50 40 L104 60 M50 80 L104 60" stroke-width="9"/>
+        </g>
+        <g fill="currentColor">
+          <path d="M100 56 L192 14 L196 20 L108 66 Z"/>
+          <path d="M100 64 L192 106 L196 100 L108 54 Z"/>
+          <circle cx="104" cy="60" r="7"/>
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div class="rule"></div>
+
+  <p class="big-tagline"><span>حلاقيها بذوق راقي، وأناقة تفرق بالطول</span></p>
+</header>
+
+<!-- شريط مواعيد العمل المتحرك: عدّل النصوص هنا (كل <span> رسالة) -->
+<div class="ticker" aria-label="مواعيد العمل">
+  <div class="ticker-track">
+    <span>مواعيد العمل: من 10 صباحاً حتى 12 منتصف الليل أو 1 صباحاً</span>
+    <span>الصالون مفتوح لحد ما تخلص أناقتك</span>
+    <span>عرض اليوم: خصم خاص على باكدج العريس</span>
+    <!-- نفس الرسائل مكررة عشان الحركة تكمل بدون فراغ -->
+    <span>مواعيد العمل: من 10 صباحاً حتى 12 منتصف الليل أو 1 صباحاً</span>
+    <span>الصالون مفتوح لحد ما تخلص أناقتك</span>
+    <span>عرض اليوم: خصم خاص على باكدج العريس</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="services">
+    <h2>خدماتنا المميزة</h2>
+    <p class="hint">اختار اللي يناسب مزاجك… ولو عاوز أكتر من خدمة، اختار براحتك.</p>
+    <div class="grid">
+
+      <label class="card"><input type="checkbox" name="service" value="قص شعر كلاسيك"><span class="in">
+        <span class="pic">
+          <svg viewBox="0 0 64 64"><use href="#man"/>
+            <path d="M20 29c-2-14 8-18 14-17 8 1 12 8 10 17-2-6-6-9-12-10-6 0-10 4-12 10z" fill="currentColor"/>
+            <path d="M28 14c1 4 0 7-2 9" fill="none" stroke="#0c0a05" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="sname">قص شعر كلاسيك</span><span class="sdesc">قصة رجالي مرتبة بسكسوكة جانبية وأناقة تقليدية</span></span></label>
+
+      <label class="card"><input type="checkbox" name="service" value="تدريجة"><span class="in">
+        <span class="pic">
+          <svg viewBox="0 0 64 64"><use href="#man"/>
+            <path d="M21 25c0-10 6-13 11-13s11 3 11 13c-3-4-7-6-11-6s-8 2-11 6z" fill="currentColor"/>
+            <path d="M19 30v-4M45 30v-4M19 27h-1M45 27h1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+          </svg>
+        </span>
+        <span class="sname">تدريجة</span><span class="sdesc">فيد رجالي احترافي بتدرج ناعم من الجنب</span></span></label>
+
+      <label class="card"><input type="checkbox" name="service" value="حلاقة دقن وتحديد"><span class="in">
+        <span class="pic">
+          <svg viewBox="0 0 64 64"><use href="#man"/>
+            <path d="M21 25c0-9 5-12 11-12s11 3 11 12c-3-3-7-5-11-5s-8 2-11 5z" fill="currentColor"/>
+            <path d="M20 31c0 15 24 15 24 0-2 6-6 9-12 9s-10-3-12-9z" fill="currentColor"/>
+            <path d="M28 36c2 1 6 1 8 0" stroke="#0c0a05" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="sname">حلاقة دقن وتحديد</span><span class="sdesc">دقن رجالي بخطوط حادة وتحديد بالموس</span></span></label>
+
+      <label class="card"><input type="checkbox" name="service" value="سشوار وتصفيف"><span class="in">
+        <span class="pic">
+          <svg viewBox="0 0 64 64"><use href="#man"/>
+            <path d="M19 28c-4-14 4-22 14-22s17 8 12 22c-2-8-6-11-13-11s-11 3-13 11z" fill="currentColor"/>
+            <path d="M52 20c4-2 7 0 7 2M52 28c4-1 6 1 6 3M50 12c3-2 6-1 6 1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".8"/>
+          </svg>
+        </span>
+        <span class="sname">سشوار وتصفيف</span><span class="sdesc">تسريح رجالي بحجم وثبات يستحمل طول اليوم</span></span></label>
+
+      <label class="card"><input type="checkbox" name="service" value="عناية بالبشرة للرجال"><span class="in">
+        <span class="pic">
+          <svg viewBox="0 0 64 64"><use href="#man"/>
+            <path d="M21 25c0-9 5-12 11-12s11 3 11 12c-3-3-7-5-11-5s-8 2-11 5z" fill="currentColor"/>
+            <path d="M12 12l2 4 4 2-4 2-2 4-2-4-4-2 4-2zM52 36l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="currentColor"/>
+            <circle cx="27" cy="31" r="1.3" fill="currentColor"/><circle cx="37" cy="31" r="1.3" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="sname">عناية بالبشرة للرجال</span><span class="sdesc">تنظيف وانتعاش لبشرة صافية ومشدودة</span></span></label>
+
+      <label class="card"><input type="checkbox" name="service" value="باكدج العريس"><span class="in">
+        <span class="pic">
+          <svg viewBox="0 0 64 64"><use href="#man"/>
+            <path d="M20 29c-2-14 8-18 14-17 8 1 12 8 10 17-2-6-6-9-12-10-6 0-10 4-12 10z" fill="currentColor"/>
+            <path d="M32 55l-8-4v8zM32 55l8-4v8z" fill="currentColor"/><circle cx="32" cy="55" r="2" fill="#0c0a05"/>
+          </svg>
+        </span>
+        <span class="sname">باكدج العريس</span><span class="sdesc">تجهيز كامل ليوم العمر من الراس للدقن</span></span></label>
+
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>احجز دورك</h2>
+    <p class="hint">اكتب اسمك وابعت… والمعلم هيحدد لك أنسب ميعاد.</p>
+
+    <div class="panel">
+      <div class="field">
+        <label for="cname">الاسم</label>
+        <input id="cname" type="text" placeholder="اكتب اسمك" autocomplete="name">
+      </div>
+
+      <p class="error" id="err" role="alert"></p>
+
+      <button class="btn" id="send" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24s-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        ابعت الحجز على واتساب
+      </button>
+      <p class="note">مفيش زحمة ولا انتظار… دورك محفوظ.</p>
+    </div>
+  </section>
+
+  <section id="payment">
+    <h2>الدفع بالمحافظ الإلكترونية</h2>
+    <p class="hint">ادفع وإنت مرتاح… تحويل سريع من أي محفظة إلكترونية.</p>
+    <div class="panel">
+      <div class="pay">
+        <div class="pay-info">
+          <span class="pay-label">رقم تحويل المحفظة الإلكترونية</span>
+          <!-- غيّر الرقم هنا -->
+          <span class="pay-number" id="payNumber">01106383089</span>
         </div>
-        <span class="tagline-big">حلاقيها بذوق راقي، وأناقة تفرق بالطول.</span>
-    </header>
+        <button class="copy" id="copyBtn" type="button">نسخ الرقم</button>
+      </div>
+    </div>
+  </section>
 
-    <!-- قسم المواعيد -->
-    <section id="hours">
-        <h2>مواعيد العمل</h2>
-        <div class="hours-box">
-            <p class="hours-text">يومياً من الساعة **10 صباحاً** وحتى **12 منتصف الليل**</p>
-            <p class="hours-text">أو **1 صباحاً** في عطلات نهاية الأسبوع</p>
-        </div>
-    </section>
+  <section id="loyalty">
+    <h2>برنامج الولاء</h2>
+    <p class="hint">كل زيارة بتقرّبك من هديتك.</p>
+    <div class="panel loyalty">
+      <p class="lead">كل 5 حلقات، الحلقة الخامسة هدية من الصالون. إنت بتحلق وإحنا بنكافئك.</p>
+      <div class="cuts" aria-hidden="true">
+        <div class="cut">1</div><div class="cut">2</div><div class="cut">3</div><div class="cut">4</div><div class="cut gift">هدية</div>
+      </div>
+      <strong>الحلقة الخامسة علينا</strong>
+    </div>
+  </section>
 
-    <!-- قسم الخدمات -->
-    <section id="services">
-        <h2>خدماتنا المميزة</h2>
-        <div class="services-grid">
-            <!-- الخدمة 1: قصة شعر كلاسيك -->
-            <div class="service-card">
-                <input type="checkbox" class="service-checkbox" value="قصة كلاسيك">
-                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=600&auto=format&fit=crop" alt="قصة شعر كلاسيك" class="service-img">
-                <div class="service-info">
-                    <div class="service-name">قصة شعر كلاسيك</div>
-                    <div class="service-price">100 ج.م</div>
-                </div>
-            </div>
+</main>
 
-            <!-- الخدمة 2: تدريجة (Fade) -->
-            <div class="service-card">
-                <input type="checkbox" class="service-checkbox" value="تدريجة">
-                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" alt="تدريجة" class="service-img">
-                <div class="service-info">
-                    <div class="service-name">تدريجة احترافية (Fade)</div>
-                    <div class="service-price">120 ج.م</div>
-                </div>
-            </div>
+<div class="closing">
+  <p class="big">هنا الأناقة مش رفاهية، دي أسلوب حياة</p>
+  <ul>
+    <li>ادخل بشعرك واطلع ملك</li>
+    <li>مفيش زحمة ولا انتظار</li>
+  </ul>
+</div>
 
-            <!-- الخدمة 3: حلاقة دقن -->
-            <div class="service-card">
-                <input type="checkbox" class="service-checkbox" value="حلاقة دقن">
-                <img src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?q=80&w=600&auto=format&fit=crop" alt="حلاقة دقن" class="service-img">
-                <div class="service-info">
-                    <div class="service-name">حلاقة دقن بالماكينة/الموس</div>
-                    <div class="service-price">80 ج.م</div>
-                </div>
-            </div>
+<footer>© صالون شادي وياسين — <b>أناقتك تبدأ من هنا</b></footer>
 
-            <!-- الخدمة 4: سشوار وتسريح -->
-            <div class="service-card">
-                <input type="checkbox" class="service-checkbox" value="سشوار">
-                <img src="https://images.unsplash.com/photo-1592647413847-a7b21e8605df?q=80&w=600&auto=format&fit=crop" alt="سشوار وتسريح" class="service-img">
-                <div class="service-info">
-                    <div class="service-name">سشوار وتسريح</div>
-                    <div class="service-price">60 ج.م</div>
-                </div>
-            </div>
+<script>
+  // ====== رقم واتساب صاحب المحل بصيغة دولية بدون + ======
+  var WHATSAPP_NUMBER = "201106383089";
 
-            <!-- الخدمة 5: ماسك وتنظيف بشرة -->
-            <div class="service-card">
-                <input type="checkbox" class="service-checkbox" value="ماسكات">
-                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=600&auto=format&fit=crop" alt="ماسك وتنظيف بشرة" class="service-img">
-                <div class="service-info">
-                    <div class="service-name">ماسك وتنظيف بشرة</div>
-                    <div class="service-price">150 ج.م</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  // نسخ رقم المحفظة الإلكترونية
+  var copyBtn = document.getElementById("copyBtn");
+  copyBtn.addEventListener("click", function () {
+    var number = document.getElementById("payNumber").textContent.trim();
 
-    <!-- قسم الحجز والمحافظ والولاء -->
-    <section id="extras">
-        <div class="booking-row">
-            <!-- كارت احجز دورك -->
-            <div class="card-box" id="booking">
-                <h3>احجز دورك</h3>
-                <div class="input-group">
-                    <label for="client-name">الاسم</label>
-                    <input type="text" id="client-name" placeholder="اكتب اسمك هنا...">
-                </div>
-                <p style="color:var(--text-muted); text-align:center; margin-bottom: 20px;">شادي هيرتب معاك الميعاد بالواتساب</p>
-                <button class="btn-whatsapp" onclick="sendWhatsAppBooking()">حجز بالواتساب</button>
-            </div>
+    function ok() {
+      copyBtn.textContent = "تم النسخ ✓";
+      copyBtn.classList.add("done");
+      setTimeout(function () {
+        copyBtn.textContent = "نسخ الرقم";
+        copyBtn.classList.remove("done");
+      }, 2000);
+    }
+    function fallback() {
+      var t = document.createElement("textarea");
+      t.value = number;
+      t.style.position = "fixed";
+      t.style.opacity = "0";
+      document.body.appendChild(t);
+      t.select();
+      try { document.execCommand("copy"); ok(); } catch (e) { copyBtn.textContent = "انسخه يدوياً"; }
+      document.body.removeChild(t);
+    }
 
-            <!-- كارت المحافظ الإلكترونية -->
-            <div class="card-box" id="payments">
-                <h3>الدفع بالمحافظ الإلكترونية</h3>
-                <div style="text-align: center; font-size: 1.2rem; line-height: 1.6;">
-                    <p>يقبل صالون شادي وياسين الدفع عبر المحافظ الإلكترونية (فودافون كاش، اتصالات كاش، إلخ.)</p>
-                    <p>لتحويل المبلغ، استخدم الرقم:</p>
-                    <p style="font-size: 2rem; color: var(--primary); font-weight: 700;">0123456789</p>
-                </div>
-            </div>
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(number).then(ok, fallback);
+    } else {
+      fallback();
+    }
+  });
 
-            <!-- كارت برنامج الولاء -->
-            <div class="card-box" id="loyalty">
-                <h3>برنامج الولاء</h3>
-                <p style="text-align:center; font-size: 1.2rem; color:var(--text-muted);">
-                    حلاقة مجانية بعد كل 5 حلاقات!
-                </p>
-                <div style="text-align: center; margin-top: 15px;">
-                    <img src="https://img.icons8.com/?size=100&id=106368&format=png&color=c9a063" alt="Loyalty Card Icon">
-                </div>
-                <p style="text-align: center; font-size: 1.1rem;">احصل على كارت برنامج الولاء عند أول زيارة، وسجل كل حلاقة لتحصل على خصمك أو حلاقة مجانية.</p>
-            </div>
-        </div>
+  // إرسال الحجز على واتساب (الاسم + الخدمات المختارة، والمعلم يحدد الميعاد)
+  document.getElementById("send").addEventListener("click", function () {
+    var name = document.getElementById("cname").value.trim();
+    var err = document.getElementById("err");
+    var services = Array.prototype.map.call(
+      document.querySelectorAll('input[name="service"]:checked'),
+      function (el) { return el.value; }
+    );
 
-        <!-- عبارات الصياعة التسويقية -->
-        <div class="marketing-quotes">
-            <div class="quote-item">"هنا الأناقة مش رفاهية، دي أسلوب حياة."</div>
-            <div class="quote-item">"ادخل بشعرك واطلع ملك."</div>
-            <div class="quote-item">"مفيش زحمة ولا انتظار، احجز واخلص."</div>
-        </div>
-    </section>
+    if (!name) { err.textContent = "من فضلك اكتب اسمك."; return; }
+    err.textContent = "";
 
-    <!-- تذييل الصفحة -->
-    <footer>
-        <p>&copy; 2023 صالون شادي وياسين. جميع الحقوق محفوظة.</p>
-    </footer>
+    var msg =
+      "السلام عليكم، أنا " + name + " وعاوز أحجز دور في صالون شادي وياسين ✂️\n" +
+      "الخدمة: " + (services.length ? services.join("، ") : "هحددها لما أوصل") + "\n" +
+      "من فضلك حدد لي الميعاد المناسب. شكراً.";
 
-    <script>
-        function sendWhatsAppBooking() {
-            var name = document.getElementById('client-name').value;
-            var services = [];
-            var checkboxes = document.querySelectorAll('.service-checkbox:checked');
-            
-            checkboxes.forEach((checkbox) => {
-                services.push(checkbox.value);
-            });
-
-            if (name == "") {
-                alert("يرجى كتابة اسمك أولاً.");
-                return;
-            }
-
-            var text = "أهلاً صالون شادي وياسين، أنا " + name + " ومحتاج أحجز دور للخدمات التالية: " + services.join(", ") + ". كلموني عشان تأكيد الميعاد.";
-            var phone = "20123456789"; // عدل هذا الرقم برقم الواتساب الفعلي للصالون (بدون أصفار في البداية ومع كود الدولة)
-            window.open("https://wa.me/" + phone + "/?text=" + encodeURIComponent(text), "_blank");
-        }
-    </script>
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+    var w = null;
+    try { w = window.open(url, "_blank"); } catch (e) {}
+    if (!w && window.top === window.self) { window.location.href = url; return; }
+    if (!w) {
+      err.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener" style="color:#f3dc8a;text-decoration:underline">اضغط هنا لفتح واتساب وإرسال الحجز</a>';
+    }
+  });
+</script>
 </body>
 </html>
