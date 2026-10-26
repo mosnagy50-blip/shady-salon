@@ -32,13 +32,18 @@ body{
 }
 .wrap{max-width:480px;margin:0 auto;padding:0 20px}
 .defs{position:absolute;width:0;height:0;overflow:hidden}
+.gold-text{
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
 
 /* ---------- Hero ---------- */
 header{
   text-align:center;
   padding:calc(40px + env(safe-area-inset-top,0px)) 0 0;
   background:
-    radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.22),transparent 65%),
+    radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.24),transparent 65%),
     var(--black);
 }
 .greet-line{
@@ -47,46 +52,53 @@ header{
   gap:min(2vw,12px);
   padding:0 10px;
 }
-.hi{font-size:min(3.4vw,1.05rem);color:var(--muted)}
+.hi{font-size:min(3.4vw,1rem);color:var(--muted)}
 .brand{
   font-family:'Aref Ruqaa','Reem Kufi','Tajawal',serif;
   font-weight:700;
-  font-size:min(9.6vw,3.5rem);
+  font-size:min(10.4vw,3.7rem);
   line-height:1.3;
   background:var(--gold-grad);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:var(--gold);
-  filter:drop-shadow(0 4px 20px rgba(212,175,55,.35));
+  filter:drop-shadow(0 4px 22px rgba(212,175,55,.4));
   animation:rise 1.2s ease-out both;
 }
 @keyframes rise{from{opacity:0;filter:blur(8px)}to{opacity:1}}
 .partner{
-  display:inline-flex;align-items:center;gap:4px;
+  display:inline-flex;align-items:center;gap:3px;
   font-family:'Aref Ruqaa','Reem Kufi',serif;
-  font-size:min(5.8vw,1.8rem);
+  font-size:min(4.6vw,1.4rem);
   color:var(--gold-light);
 }
-.partner svg{width:min(7.5vw,2.2rem);height:auto;color:var(--gold);filter:drop-shadow(0 2px 8px rgba(212,175,55,.45))}
+.partner svg{width:min(6.4vw,1.9rem);height:auto;color:var(--gold);filter:drop-shadow(0 2px 8px rgba(212,175,55,.45))}
 .rule{width:90px;height:2px;margin:14px auto 0;background:var(--gold-grad)}
 
 /* الجملة الكبيرة بعرض الشاشة */
 .big-tagline{
   width:100%;
   margin-top:20px;
-  padding:26px 14px 30px;
+  padding:30px 14px 32px;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--gold-deep);
-  background:linear-gradient(180deg,rgba(212,175,55,.08),transparent);
+  background:linear-gradient(180deg,rgba(212,175,55,.10),transparent);
+}
+.big-tagline .l1{
+  display:block;
   font-family:'Aref Ruqaa','Reem Kufi',serif;
   font-weight:700;
-  font-size:clamp(1.9rem,8.6vw,3rem);
-  line-height:1.6;
-}
-.big-tagline span{
+  font-size:clamp(2rem,9.4vw,3.3rem);
+  line-height:1.5;
   background:var(--gold-grad);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:var(--gold);
   filter:drop-shadow(0 3px 16px rgba(212,175,55,.3));
+}
+.big-tagline .l2{
+  display:block;margin-top:8px;
+  color:var(--gold-light);
+  font-size:clamp(1rem,4.4vw,1.25rem);
+  letter-spacing:.02em;
 }
 
 /* ---------- Marquee (مواعيد العمل) ---------- */
@@ -163,7 +175,7 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transp
 .card input:checked + .in .sname{color:var(--gold-light)}
 .card input:focus-visible + .in{outline:2px solid var(--gold-light);outline-offset:3px}
 
-/* ---------- صناديق (حجز / محفظة / ولاء) ---------- */
+/* ---------- صناديق (حجز / محفظة) ---------- */
 .panel{
   padding:24px 20px;
   background:linear-gradient(160deg,#18140a,#0c0a05);
@@ -177,7 +189,7 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transp
   width:100%;padding:15px 16px;
   background:var(--black);border:1px solid var(--line);border-radius:12px;
   color:var(--text);font:inherit;font-size:1rem;
-  transition:border-color .2s;
+  transition:border-color .2s;color-scheme:dark;
 }
 .field input:focus{outline:none;border-color:var(--gold)}
 .field input::placeholder{color:#6d6350}
@@ -186,6 +198,7 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transp
   width:100%;padding:16px;background:var(--gold-grad);color:var(--ink);
   border:0;border-radius:12px;font:inherit;font-weight:700;font-size:1.15rem;cursor:pointer;
   display:flex;align-items:center;justify-content:center;gap:10px;
+  text-decoration:none;
   box-shadow:0 8px 24px rgba(212,175,55,.22);
   transition:transform .15s,filter .2s;
 }
@@ -219,47 +232,95 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(to left,transp
 .copy:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
 .copy.done{background:var(--gold-grad);color:var(--ink);border-color:var(--gold)}
 
-/* ---------- Loyalty ---------- */
-.loyalty{text-align:center}
-.loyalty .lead{color:var(--text);font-size:1.05rem;max-width:340px;margin:0 auto 20px}
-.cuts{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:340px;margin:0 auto 16px}
-.cut{
-  aspect-ratio:1;border:1.5px solid var(--gold-deep);border-radius:50%;
-  display:grid;place-items:center;color:var(--gold);font-weight:700;font-size:1rem;
+/* ---------- Loyalty (كبير ومميز) ---------- */
+.vip{
+  position:relative;
+  padding:38px 18px 34px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.22),transparent 70%),
+    linear-gradient(160deg,#1d1709,#0a0804);
+  border:2px solid var(--gold);
+  border-radius:22px;
+  box-shadow:0 0 0 6px rgba(212,175,55,.07),0 18px 50px rgba(212,175,55,.18);
 }
-.cut.gift{
-  background:var(--gold-grad);color:var(--ink);border-color:var(--gold);
-  box-shadow:0 0 18px rgba(212,175,55,.45);font-size:.72rem;
+.vip::before,.vip::after{
+  content:"✦";position:absolute;top:14px;color:var(--gold);font-size:1.1rem;opacity:.9;
 }
-.loyalty strong{color:var(--gold-light);font-size:1.1rem}
-
-/* ---------- Closing ---------- */
-.closing{
-  margin-top:50px;padding:40px 20px 10px;text-align:center;
-  border-top:2px solid var(--gold);background:var(--coal);
+.vip::before{right:18px}
+.vip::after{left:18px}
+.vip .badge{
+  display:inline-block;
+  padding:5px 20px;margin-bottom:14px;
+  border:1px solid var(--gold);border-radius:999px;
+  color:var(--gold-light);font-size:.9rem;letter-spacing:.06em;
 }
-.closing .big{
+.vip .title{
   font-family:'Aref Ruqaa','Reem Kufi',serif;font-weight:700;
-  font-size:clamp(1.6rem,7vw,2.2rem);line-height:1.6;margin-bottom:18px;
+  font-size:clamp(2rem,9vw,2.8rem);line-height:1.4;
   background:var(--gold-grad);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:var(--gold);
+  filter:drop-shadow(0 3px 16px rgba(212,175,55,.3));
 }
-.closing ul{list-style:none;display:grid;gap:10px;max-width:340px;margin:0 auto 6px}
-.closing li{
-  padding:12px 14px;border:1px solid var(--line);border-radius:12px;
-  color:var(--gold-light);font-weight:500;
+.vip .lead{color:var(--text);font-size:1.12rem;max-width:360px;margin:8px auto 26px}
+.cuts{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  margin:0 auto 22px;
 }
-.closing li::before{content:"✦";color:var(--gold);margin-left:8px}
+.cut{
+  aspect-ratio:1;border:2px solid var(--gold-deep);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);font-weight:700;font-size:1.35rem;
+  background:rgba(212,175,55,.05);
+}
+.cut.gift{
+  background:var(--gold-grad);color:var(--ink);border-color:var(--gold-light);
+  box-shadow:0 0 26px rgba(212,175,55,.6);font-size:.95rem;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.vip strong{display:block;color:var(--gold-light);font-size:1.25rem}
+.vip .small{color:var(--muted);font-size:.9rem;margin-top:6px}
+
+/* ---------- Closing ---------- */
+.closing{
+  margin-top:56px;padding:48px 20px 14px;text-align:center;
+  border-top:2px solid var(--gold);
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.14),transparent 65%),
+    var(--coal);
+}
+.closing .kicker{color:var(--muted);letter-spacing:.18em;font-size:.9rem;margin-bottom:6px}
+.closing .big{
+  font-family:'Aref Ruqaa','Reem Kufi',serif;font-weight:700;
+  font-size:clamp(2rem,9vw,3rem);line-height:1.55;margin-bottom:26px;
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+  filter:drop-shadow(0 3px 16px rgba(212,175,55,.28));
+}
+.quotes{display:grid;gap:12px;max-width:440px;margin:0 auto 30px}
+.q{
+  padding:18px 16px;
+  border:1px solid var(--gold-deep);border-radius:14px;
+  background:linear-gradient(160deg,#18140a,#0c0a05);
+  font-family:'Aref Ruqaa','Reem Kufi',serif;font-weight:700;
+  font-size:clamp(1.3rem,5.8vw,1.7rem);line-height:1.6;
+  color:var(--gold-light);
+}
+.q::before{content:"✦ ";color:var(--gold)}
+.q::after{content:" ✦";color:var(--gold)}
+.closing .cta{max-width:440px;margin:0 auto 26px}
+.closing .sign{color:var(--muted);font-size:.95rem;max-width:360px;margin:0 auto 20px}
 
 footer{
   text-align:center;color:var(--muted);font-size:.85rem;background:var(--coal);
-  padding:20px 20px calc(30px + env(safe-area-inset-bottom,0px));
+  padding:8px 20px calc(30px + env(safe-area-inset-bottom,0px));
 }
 footer b{color:var(--gold)}
 
 @media (prefers-reduced-motion:reduce){
-  .ticker-track,.brand,.ticker::after{animation:none}
+  .ticker-track,.brand,.ticker::after,.cut.gift{animation:none}
   .ticker{overflow-x:auto}
 }
 </style>
@@ -280,7 +341,7 @@ footer b{color:var(--gold)}
 
 <header>
   <div class="greet-line">
-    <span class="hi">أهلاً بك في</span>
+    <span class="hi">أهلاً بك</span>
     <h1 class="brand">صالون شادي</h1>
     <span class="partner">وياسين
       <svg viewBox="0 0 200 120" aria-hidden="true">
@@ -299,7 +360,10 @@ footer b{color:var(--gold)}
   </div>
   <div class="rule"></div>
 
-  <p class="big-tagline"><span>حلاقيها بذوق راقي، وأناقة تفرق بالطول</span></p>
+  <p class="big-tagline">
+    <span class="l1">هيبتك تبدأ من الكرسي بتاعنا</span>
+    <span class="l2">قصة تتكلم عنك قبل ما تتكلم</span>
+  </p>
 </header>
 
 <!-- شريط مواعيد العمل المتحرك: عدّل النصوص هنا (كل <span> رسالة) -->
@@ -383,12 +447,16 @@ footer b{color:var(--gold)}
 
   <section id="booking">
     <h2>احجز دورك</h2>
-    <p class="hint">اكتب اسمك وابعت… والمعلم هيحدد لك أنسب ميعاد.</p>
+    <p class="hint">اكتب اسمك واختار الميعاد اللي يناسبك، وابعت… ونأكد لك على واتساب.</p>
 
     <div class="panel">
       <div class="field">
         <label for="cname">الاسم</label>
         <input id="cname" type="text" placeholder="اكتب اسمك" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="ctime">الميعاد اللي تحب تيجي فيه</label>
+        <input id="ctime" type="datetime-local">
       </div>
 
       <p class="error" id="err" role="alert"></p>
@@ -418,24 +486,35 @@ footer b{color:var(--gold)}
 
   <section id="loyalty">
     <h2>برنامج الولاء</h2>
-    <p class="hint">كل زيارة بتقرّبك من هديتك.</p>
-    <div class="panel loyalty">
-      <p class="lead">كل 5 حلقات، الحلقة الخامسة هدية من الصالون. إنت بتحلق وإحنا بنكافئك.</p>
+    <p class="hint">لأن الوفاء ليه مكافأة.</p>
+    <div class="vip">
+      <span class="badge">عضوية الأوفياء</span>
+      <p class="title">4 حلقات… والخامسة علينا</p>
+      <p class="lead">كل زيارة بتقرّبك من هديتك. اجمع حلقاتك واستلم حلقة هدية من الصالون، بدون شروط ولا تعقيد.</p>
       <div class="cuts" aria-hidden="true">
         <div class="cut">1</div><div class="cut">2</div><div class="cut">3</div><div class="cut">4</div><div class="cut gift">هدية</div>
       </div>
-      <strong>الحلقة الخامسة علينا</strong>
+      <strong>الحلقة الخامسة هدية من الصالون</strong>
+      <p class="small">إنت بتحلق… وإحنا بنكافئك.</p>
     </div>
   </section>
 
 </main>
 
 <div class="closing">
+  <p class="kicker">كلمة أخيرة</p>
   <p class="big">هنا الأناقة مش رفاهية، دي أسلوب حياة</p>
-  <ul>
-    <li>ادخل بشعرك واطلع ملك</li>
-    <li>مفيش زحمة ولا انتظار</li>
-  </ul>
+
+  <div class="quotes">
+    <p class="q">ادخل بشعرك واطلع ملك</p>
+    <p class="q">مفيش زحمة ولا انتظار</p>
+    <p class="q">قصتك توقيعك… وإيدينا بتمضي</p>
+    <p class="q">الشياكة مش بتتشرى، بتتعمل</p>
+    <p class="q">اطلع من عندنا والكل يسأل: إنت بتحلق فين؟</p>
+  </div>
+
+  <a class="btn cta" href="#booking">احجز دورك دلوقتي</a>
+  <p class="sign">صالون شادي وياسين… للرجال اللي بيعرفوا قيمة نفسهم.</p>
 </div>
 
 <footer>© صالون شادي وياسين — <b>أناقتك تبدأ من هنا</b></footer>
@@ -475,9 +554,10 @@ footer b{color:var(--gold)}
     }
   });
 
-  // إرسال الحجز على واتساب (الاسم + الخدمات المختارة، والمعلم يحدد الميعاد)
+  // إرسال الحجز على واتساب (الاسم + الميعاد + الخدمات المختارة)
   document.getElementById("send").addEventListener("click", function () {
     var name = document.getElementById("cname").value.trim();
+    var time = document.getElementById("ctime").value;
     var err = document.getElementById("err");
     var services = Array.prototype.map.call(
       document.querySelectorAll('input[name="service"]:checked'),
@@ -485,12 +565,17 @@ footer b{color:var(--gold)}
     );
 
     if (!name) { err.textContent = "من فضلك اكتب اسمك."; return; }
+    if (!time) { err.textContent = "من فضلك اختار الميعاد اللي يناسبك."; return; }
     err.textContent = "";
+
+    var d = new Date(time);
+    var when = d.toLocaleString("ar-EG", { weekday: "long", day: "numeric", month: "long", hour: "numeric", minute: "2-digit" });
 
     var msg =
       "السلام عليكم، أنا " + name + " وعاوز أحجز دور في صالون شادي وياسين ✂️\n" +
       "الخدمة: " + (services.length ? services.join("، ") : "هحددها لما أوصل") + "\n" +
-      "من فضلك حدد لي الميعاد المناسب. شكراً.";
+      "الميعاد المناسب ليا: " + when + "\n" +
+      "من فضلك أكد لي الحجز. شكراً.";
 
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
     var w = null;
